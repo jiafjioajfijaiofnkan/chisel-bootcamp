@@ -1,6 +1,6 @@
 > :warning: Jupyter Binder 项目的某些功能已经过时。虽然教程内容仍然有效，大部分练习也仍可运行，但您可能会遇到一些错误。
 
-[![活页夹](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/freechipsproject/chisel-bootcamp/master)
+[![活页夹](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jiafjioajfijaiofnkan/chisel-bootcamp/translation-to-chinese)
 
 **_对于训练营的老用户，我们已将 Scala 从 2.11 版本升级到 Scala 2.12 版本。如果您遇到错误，请按照安装说明升级到 2.12 版本。_**
 
@@ -26,7 +26,7 @@
 
 ## 入门指南
 
-[在此处](https://mybinder.org/v2/gh/freechipsproject/chisel-bootcamp/master)尝试一下！无需本地安装！
+[在此处](https://mybinder.org/v2/gh/jiafjioajfijaiofnkan/chisel-bootcamp/translation-to-chinese)尝试一下！无需本地安装！
 
 如果您想在本地尝试，[请在此处查看安装说明](Install.md)。
 
