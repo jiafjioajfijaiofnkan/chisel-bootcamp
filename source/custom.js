@@ -1,5 +1,4 @@
-
-// load accordian stuff
+// 加载手风琴相关内容
 var styleAcc = document.createElement('style');
 styleAcc.innerHTML = `
 #container {

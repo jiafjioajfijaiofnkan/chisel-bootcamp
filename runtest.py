@@ -11,8 +11,8 @@ import nbformat
 
 
 def _notebook_run(path):
-    """Execute a notebook via nbconvert and collect output.
-       :returns (parsed nb object, execution errors)
+    """通过 nbconvert 执行 notebook 并收集输出。
+       :返回 (解析后的 nb 对象, 执行错误)
     """
     dirname, __ = os.path.split(path)
     if len(dirname) > 0:
@@ -35,15 +35,14 @@ def _notebook_run(path):
 
 
 def check_errors(file_name, expected: List[str], actual: List[Any]) -> bool:
-    """When errors occur they are due to a mismatch in the errors that occurred at runtime
-    and the expected error that are defined in notebooks
-    This produces huge output but the relevant information is between bars of '=' at the end.
-    Look at what was expected and either fix the error or add the text of the error that occurred
-    :note Errors shown may have hidden escape sequence for colors etc. When pasting be careful about this.
+    """当发生错误时，是由于运行时发生的错误与 notebook 中定义的预期错误不匹配。
+    这会产生大量输出，但相关信息在末尾的 '=' 符号之间。
+    查看预期的内容，然后修复错误或添加发生的错误的文本。
+    :注意 显示的错误可能包含颜色等的隐藏转义序列。粘贴时请注意这一点。
 
-    :param file_name: name of file where errors occurred
-    :param expected:  errors that were expected
-    :param actual:    errors that occurred.
+    :param file_name: 发生错误的文件的名称
+    :param expected:  预期的错误
+    :param actual:    实际发生的错误。
     :return:
     """
     actual_tracebacks: List[str] = list(map(lambda x: str(x['traceback'][0][:100]), actual))
@@ -53,8 +52,8 @@ def check_errors(file_name, expected: List[str], actual: List[Any]) -> bool:
         if e not in a:
             if return_value:
                 print("=" * 100, file=sys.stderr)
-                print(f"Errors detected in {file_name}", file=sys.stderr)
-            print(f"No match for {i}-th expected error '{e}' got '{a[:100]}'", file=sys.stderr)
+                print(f"在 {file_name} 中检测到错误", file=sys.stderr)
+            print(f"第 {i} 个预期错误 '{e}' 不匹配，得到 '{a[:100]}'", file=sys.stderr)
             return_value = False
     if not return_value:
         print("=" * 100, file=sys.stderr)
@@ -62,7 +61,7 @@ def check_errors(file_name, expected: List[str], actual: List[Any]) -> bool:
 
 
 notebooks: Dict[str, List[str]] = {
-    # This is the list of pages to try and rum along with each pages expected errors.
+    # 这是要尝试运行的页面列表以及每个页面预期的错误。
 
     "1_intro_to_scala.ipynb": [],
     "2.1_first_module.ipynb": ["chisel3.internal.ChiselException: Exception thrown when elaborating ChiselGeneratorAnnotation"],
@@ -106,13 +105,13 @@ if __name__ == "__main__":
     notebooks_to_run: List[str] = []
     if len(sys.argv) > 1:
         if sys.argv[1] == "--help":
-            print("Usage: {} [notebook_name.ipynb] [notebook_name_2.ipynb] [...]".format(sys.argv[0]))
-            print("By default, check all notebooks if notebooks are not specified.")
+            print("用法: {} [notebook_name.ipynb] [notebook_name_2.ipynb] [...]".format(sys.argv[0]))
+            print("如果未指定 notebook，则默认检查所有 notebook。")
             sys.exit(0)
         else:
             notebooks_to_run = sys.argv[1:]
     else:
-        notebooks_to_run = sorted(notebooks)  # all notebooks
+        notebooks_to_run = sorted(notebooks)  # 所有 notebook
     for n in notebooks_to_run:
         expected = notebooks[n]
         nb, errors = _notebook_run(n)

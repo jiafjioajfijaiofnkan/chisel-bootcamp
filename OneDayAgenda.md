@@ -1,66 +1,58 @@
-# One Day : Chisel Bootcamp
-The goal of this bootcamp is to get the attendee up to speed with Scala
-and Chisel as quickly as possible. The format should be casual with a lot
-of questions and immediate feedback. 
-There's a lot of content here so it
-is very unlikely that we will get through everything so instead we will
-try and get some hands work in each section to get a taste of the concepts.
-It is a very good idea to follow up this bootcamp by fully going through every
-section.
+# 一日：Chisel 训练营
+本训练营的目标是让参与者尽快熟悉 Scala 和 Chisel。
+形式应该是非正式的，鼓励大量提问和即时反馈。
+这里有很多内容，因此我们不太可能全部讲完，
+所以我们将尝试在每个部分都进行一些动手练习，以体验这些概念。
+在训练营结束后，强烈建议您完整地学习每个部分。
 
-This will all go faster and smoother if you can prepare a development environment beforehand.
-Checkout [The Chisel Bootcamp](https://github.com/freechipsproject/chisel-bootcamp) on [github](https://github.com)
+如果您能提前准备好开发环境，整个过程将会更快更顺利。
+请在 [github](https://github.com) 上查看 [Chisel 训练营](https://github.com/freechipsproject/chisel-bootcamp)。
 
-## Presenters
+## 主讲人
 - 
-## Schedule
+## 日程安排
 
-- 9:00 AM  -- Quick Introduction to Chisel & the Bootcamp
-  - Why Chisel.
-  - How the bootcamp works
+- 上午 9:00 -- Chisel 和训练营简介
+  - 为什么选择 Chisel。
+  - 训练营如何运作
    
-- 9:15 AM  -- Section 1: Introduction to Scala
-  - Why Scala? Coming up to Speed. 5 min.
-  - Hands on Section 1
+- 上午 9:15 -- 第 1 部分：Scala 简介
+  - 为什么选择 Scala？快速上手。 5 分钟。
+  - 第 1 部分动手练习
  
 
-- 10:00 AM -- Section 2.1 Combinational Logic
-  - Pep talk on building circuits with Chisel 5+ minutes
-  - Hands on Section 2.1
+- 上午 10:00 -- 第 2.1 部分：组合逻辑
+  - 关于使用 Chisel 构建电路的动员讲话 5 分钟以上
+  - 第 2.1 部分动手练习
   
-- 11:00 AM -- Sections 2.2, 2.3, and 2.4
-  - After this hour, you can build anything ~3 minutes
-  - Hands on Sections 2.2, 2.3, and 2.4
+- 上午 11:00 -- 第 2.2、2.3 和 2.4 部分
+  - 一小时后，您将能够构建任何东西 约 3 分钟
+  - 第 2.2、2.3 和 2.4 部分动手练习
   
-- 12:00 PM -- Sections 2.5
-  - Putting it all together ~3 minutes
-  - Hands on Section 2.5. Up to DSP Example
+- 中午 12:00 -- 第 2.5 部分
+  - 融会贯通 约 3 分钟
+  - 第 2.5 部分动手练习。直到 DSP 示例
   
-- 12:30 -- **Lunch**
+- 中午 12:30 -- **午餐**
 
-- 1:30 PM -- Section 3.1 and 3.2 and Interlude
-  - About generators. 5 min.
-  - Hands on Section 3.1 and 3.2 and Interlude
+- 下午 1:30 -- 第 3.1 和 3.2 部分及插曲
+  - 关于生成器。 5 分钟。
+  - 第 3.1 和 3.2 部分及插曲动手练习
 
-- 2:30 PM -- Section 3.3 and 3.4
-  - About functional programming. 5 min. 
-  - Hands on Section 3.3 and 3.4
+- 下午 2:30 -- 第 3.3 和 3.4 部分
+  - 关于函数式编程。 5 分钟。 
+  - 第 3.3 和 3.4 部分动手练习
 
-- 3:30 PM -- Section 3.5 and 3.6
-  - About object ans types. 5 min.
-  - Hands on Section 3.5 and 3.6
+- 下午 3:30 -- 第 3.5 和 3.6 部分
+  - 关于对象和类型。 5 分钟。
+  - 第 3.5 和 3.6 部分动手练习
 
-- 4:30 PM -- Further topics
+- 下午 4:30 -- 其他主题
   - Firrtl
-  - Chisel template
+  - Chisel 模板
   - sbt
   - IntelliJ
-  - Thank you
+  - 谢谢
   
-- 5:00 PM
-    ## Done!
-
-
-
-
-
+- 下午 5:00
+    ## 完成！

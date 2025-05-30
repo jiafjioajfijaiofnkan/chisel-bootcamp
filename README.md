@@ -1,75 +1,75 @@
-> :warning: Some features of the Jupyter Binder project have bit-rotted. Whilst the teachings are still valid and the majority of the exercises still work, you will encounter errors.
+> :warning: Jupyter Binder 项目的某些功能已经过时。虽然教程内容仍然有效，大部分练习也仍可运行，但您可能会遇到一些错误。
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/freechipsproject/chisel-bootcamp/master)
+[![活页夹](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/freechipsproject/chisel-bootcamp/master)
 
-**_For previous users of the bootcamp, we have upgraded from Scala 2.11 to Scala 2.12. If you are encountering errors, please follow the installation instructions to upgrade to 2.12._**
+**_对于训练营的老用户，我们已将 Scala 从 2.11 版本升级到 Scala 2.12 版本。如果您遇到错误，请按照安装说明升级到 2.12 版本。_**
 
-# Chisel Bootcamp
+# Chisel 训练营
 
-Elevate the level of your hardware design from instances to generators!
-This bootcamp teaches you Chisel, a Berkeley hardware construction DSL written in Scala.
-It teaches you Scala along the way, and it frames the learning of Chisel on the idea of *hardware generators*.
+将您的硬件设计水平从实例提升到生成器！
+本训练营将教授您 Chisel，一个用 Scala 编写的伯克利硬件构建 DSL。
+它会同时教授您 Scala，并围绕*硬件生成器*的概念构建 Chisel 的学习框架。
 
-## What you'll learn
+## 您将学到什么
 
-- Why hardware designs are better expressed as generators, not instances
-- Basics and some advanced features of Scala, a modern programming language
-- Basics and some advanced features of Chisel, a hardware description language embedded in Scala
-- How to write unit tests for Chisel designs
-- Basic introduction to some useful features in Chisel libraries, including [dsptools](https://github.com/ucb-bar/dsptools/) and [rocketchip](https://github.com/freechipsproject/rocket-chip).
+- 为什么硬件设计更适合表达为生成器，而不是实例
+- Scala（一种现代编程语言）的基础知识和一些高级功能
+- Chisel（一种嵌入在 Scala 中的硬件描述语言）的基础知识和一些高级功能
+- 如何为 Chisel 设计编写单元测试
+- Chisel 库中一些有用功能的基本介绍，包括 [dsptools](https://github.com/ucb-bar/dsptools/) 和 [rocketchip](https://github.com/freechipsproject/rocket-chip)。
 
-## Prerequisites
+## 先决条件
 
-- Familiarity with Verilog, VHDL, or at least some digital hardware design
-- Programming experience in with a "high-level" language, be it in Python, Java, C++, etc.
-- An earnest desire to learn
+- 熟悉 Verilog、VHDL，或至少具备一些数字硬件设计知识
+- 具有使用“高级”语言（如 Python、Java、C++ 等）的编程经验
+- 强烈的学习愿望
 
-## Getting Started
+## 入门指南
 
-Try it out [HERE](https://mybinder.org/v2/gh/freechipsproject/chisel-bootcamp/master)! No local installation required!
+[在此处](https://mybinder.org/v2/gh/freechipsproject/chisel-bootcamp/master)尝试一下！无需本地安装！
 
-If you want to try it out locally, [look at installation instructions here](Install.md).
+如果您想在本地尝试，[请在此处查看安装说明](Install.md)。
 
-## Outline
+## 大纲
 
-The bootcamp is divided into modules, which are further subdivided.
-This README serves as *Module 0*, an introduction and motivation to learning the material contained within.
-*Module 1* gives a quick introduction to Scala.
-It teaches you enough to start writing Chisel, but many more Scala concepts are taught along the way.
-Chisel is introduced in *Module 2*, starting with a hardware example and breaking it down.
-The rest of *Module 2* covers combinational and sequential logic, as well as software and hardware control flow.
-*Module 3* teaches you how to write hardware generators in Chisel that take advantage of Scala's high-level programming language features.
-By the end, you will be able to read and understand most of the [Chisel code base](https://github.com/freechipsproject/chisel3) and begin using [Rocket Chip](https://github.com/freechipsproject/rocket-chip).
-This tutorial *does not* yet cover SBT, build systems, backend flows for FPGA or ASIC processes, or analog circuits.
+本训练营分为多个模块，模块又进一步细分。
+本 README 文件作为*模块 0*，介绍并激发学习本训练营内容的动力。
+*模块 1* 快速介绍 Scala。
+它会教授您足够的 Scala 知识以开始编写 Chisel，但在此过程中还会教授更多 Scala 概念。
+Chisel 在*模块 2* 中引入，从一个硬件示例开始并对其进行分解。
+*模块 2* 的其余部分涵盖组合逻辑和时序逻辑，以及软件和硬件控制流。
+*模块 3* 教您如何使用 Chisel 编写硬件生成器，并利用 Scala 的高级编程语言特性。
+学完本训练营后，您将能够阅读和理解大部分 [Chisel 代码库](https://github.com/freechipsproject/chisel3) 并开始使用 [Rocket Chip](https://github.com/freechipsproject/rocket-chip)。
+本教程目前*不*涵盖 SBT、构建系统、FPGA 或 ASIC 流程的后端，或模拟电路。
 
-## Motivation
-All hardware description languages support writing single instances.
-However, writing instances is tedious.
-Why make the same mistakes writing a slightly modified version of something somebody else has likely already designed?
-Verilog supports limited parameterization, such as bitwidths and generate statements, but this only gets you so far.
-If we can't write a Verilog generator, we need to write a new instance, thus doubling our code size.
-As a better option, we should write one program that generates both hardware instances, which would reduce our code size and make tedious things easier.
-These programs are called generators.
+## 动机
+所有硬件描述语言都支持编写单个实例。
+然而，编写实例非常繁琐。
+为什么要在编写别人可能已经设计过的东西的略微修改版本时犯同样的错误呢？
+Verilog 支持有限的参数化，例如位宽和 generate 语句，但这只能带您走这么远。
+如果我们不能编写 Verilog 生成器，就需要编写一个新的实例，从而使代码量翻倍。
+作为一种更好的选择，我们应该编写一个程序来生成两个硬件实例，这将减少我们的代码量并使繁琐的事情变得更容易。
+这些程序称为生成器。
 
-Ideally, we want our generators to be (1) composable, (2) powerful, and (3) enable fine-grained control over the generated design.
-Error checking is necessary to make sure a composition is legal; without it, debugging is difficult.
-This requires a generator language to understand the semantics of the design (to know what’s legal and what’s not).
-Also, the generator should not be overly verbose!
-We want the generator program to concisely express many different designs, without rewriting it in if statements for each instance.
-Finally, it should be a zero-cost abstraction.
-Hardware design performance is very sensitive to small changes, and because of that, you need to be able to exactly specify the microarchitecture.
-Generators are very different than high-level-synthesis (HLS).
+理想情况下，我们希望我们的生成器是（1）可组合的，（2）强大的，并且（3）能够对生成的设计进行细粒度控制。
+错误检查对于确保组合合法是必要的；没有它，调试将非常困难。
+这要求生成器语言理解设计的语义（以了解什么是合法的，什么是不合法的）。
+此外，生成器不应过于冗长！
+我们希望生成器程序能够简洁地表达许多不同的设计，而无需为每个实例在 if 语句中重写它。
+最后，它应该是一种零成本抽象。
+硬件设计性能对微小的变化非常敏感，因此，您需要能够精确地指定微体系结构。
+生成器与高级综合（HLS）有很大不同。
 
-The benefits of Chisel are in how you use it, not in the language itself.
-If you decide to write instances instead of generators, you will see fewer advantages of Chisel over Verilog.
-But if you take the time to learn how to write generators, then the power of Chisel will become apparent and you will realize you can never go back to writing Verilog.
-Learning to write generators is difficult, but we hope this tutorial will pave the way for you to become a better hardware designer, programmer, and thinker!
+Chisel 的优势在于您如何使用它，而不在于语言本身。
+如果您决定编写实例而不是生成器，那么与 Verilog 相比，您将看到 Chisel 的优势较少。
+但是，如果您花时间学习如何编写生成器，那么 Chisel 的强大功能将变得显而易见，您会发现自己再也回不去编写 Verilog 了。
+学习编写生成器是困难的，但我们希望本教程能为您铺平道路，使您成为一名更好的硬件设计师、程序员和思考者！
 
-## FAQ
+## 常见问题解答
 
-### Kernel Crashes Upon Startup
+### 内核启动时崩溃
 
-I get the following error upon launching a Scala notebook and Jupyter says that the kernel has crashed:
+启动 Scala 笔记本时出现以下错误，Jupyter 显示内核已崩溃：
 
 ```
 Exception in thread "main" java.lang.RuntimeException: java.lang.NullPointerException
@@ -87,9 +87,9 @@ Caused by: java.lang.NullPointerException
   ...
 ```
 
-Make sure that you have **Java 8** selected for running Jupyter (see the instructions above).
+确保您选择了 **Java 8** 来运行 Jupyter（请参阅上面的说明）。
 
-## Contributors
+## 贡献者
 - Stevo Bailey ([stevo@berkeley.edu](mailto:stevo@berkeley.edu))
 - Adam Izraelevitz ([adamiz@berkeley.edu](mailto:azidar@berkeley.edu))
 - Richard Lin ([richard.lin@berkeley.edu](mailto:edwardw@berkeley.edu))

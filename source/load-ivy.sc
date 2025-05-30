@@ -6,7 +6,7 @@ interp.repositories() ::: List(
 
 interp.configureCompiler(x => x.settings.source.value = scala.tools.nsc.settings.ScalaVersion("2.11.12"))
 
-// Uncomment and change to use proxy
+// 取消注释并更改以使用代理
 // System.setProperty("https.proxyHost", "proxy.example.com")
 // System.setProperty("https.proxyPort", "3128")
 
@@ -20,7 +20,7 @@ import $ivy.`edu.berkeley.cs::firrtl-diagrammer:1.3.+`
 
 import $ivy.`org.scalatest::scalatest:3.2.2`
 
-// Convenience function to invoke Chisel and grab emitted Verilog.
+// 调用 Chisel 并获取生成的 Verilog 的便捷函数。
 def getVerilog(dut: => chisel3.core.UserModule): String = {
   import firrtl._
   return chisel3.Driver.execute(Array[String](), {() => dut}) match {
@@ -30,7 +30,7 @@ def getVerilog(dut: => chisel3.core.UserModule): String = {
   }
 }
 
-// Convenience function to invoke Chisel and grab emitted FIRRTL.
+// 调用 Chisel 并获取生成的 FIRRTL 的便捷函数。
 def getFirrtl(dut: => chisel3.core.UserModule): String = {
   return chisel3.Driver.emit({() => dut})
 }
@@ -58,11 +58,11 @@ def compileFIRRTL(
   }
 
   catch {
-    // Rethrow the exceptions which are expected or due to the runtime environment (out of memory, stack overflow)
+    // 重新抛出预期异常或由运行时环境（内存不足、堆栈溢出）引起的异常
     case p: ControlThrowable => throw p
     case p: PassException  => throw p
     case p: FIRRTLException => throw p
-     // Treat remaining exceptions as internal errors.
+     // 将其余异常视为内部错误。
        case e: Exception => firrtl.Utils.throwInternalError(exception = Some(e))
   }
 
@@ -92,7 +92,7 @@ def stringifyAST(firrtlAST: firrtl.ir.Circuit): String = {
   buf.toString
 }
 
-// Returns path to module viz and hierarchy viz
+// 返回模块可视化和层次结构可视化的路径
 def generateVisualizations(gen: () => chisel3.RawModule): (String, String) = {
     import dotvisualizer._
     import dotvisualizer.transforms._
@@ -125,7 +125,7 @@ def generateVisualizations(gen: () => chisel3.RawModule): (String, String) = {
     }
     val newTop = readableTop
 
-    // Console hack prevents unnecessary chatter appearing in cell
+    // 控制台技巧可防止不必要的聊天内容出现在单元格中
     scala.Console.withOut(new PrintStream(new ByteArrayOutputStream())) {
       val sourceFirrtl = (new ChiselStage).emitChirrtl(gen())
 
@@ -164,4 +164,3 @@ def visualizeHierarchy(gen: () => chisel3.RawModule): Unit = {
     val (moduleView, instanceView) = generateVisualizations(gen)
     html(instanceView)
 }
-

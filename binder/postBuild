@@ -2,11 +2,11 @@
 
 SCALA_VERSION=2.12.10 ALMOND_VERSION=0.9.1
 
-# Install coursier
+# 安装 coursier
 curl -Lo coursier https://git.io/coursier-cli
 chmod +x coursier
 
-# Install almond
+# 安装 almond
 ./coursier bootstrap \
     -r jitpack \
     -i user -I user:sh.almond:scala-kernel-api_$SCALA_VERSION:$ALMOND_VERSION \
@@ -15,9 +15,9 @@ chmod +x coursier
     -o almond
 ./almond --install
 
-# Install required Jupyter/JupyterLab extensions
+# 安装所需的 Jupyter/JupyterLab 扩展
 jupyter labextension install @jupyterlab/plotly-extension
 
-# Install custom Javascript for solutions
+# 安装用于解决方案的自定义 Javascript
 mkdir -p ~/.jupyter/custom
 cp source/custom.js ~/.jupyter/custom/custom.js
